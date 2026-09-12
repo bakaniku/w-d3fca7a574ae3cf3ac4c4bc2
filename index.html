@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>w-d3fca7a574ae3cf3ac4c4bc2</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<style>
+body{margin:0;background:#141312;color:#e8e2d9;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:14px}
+button,input,textarea{font-family:inherit}
+.btn{background:#26231f;color:#e8e2d9;border:1px solid #3a352f;border-radius:6px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.btn.primary{background:#e8a88a;color:#1a0f0a;border:0;font-weight:700}
+.btn.ghost{background:transparent;color:#8f877c}
+.btn.light{background:#e8e2d9;color:#141312;border:0;font-weight:700}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;border-bottom:1px solid #2a2724;flex-wrap:wrap}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filewrap{display:flex;flex-direction:column;gap:2px;font-size:11px;color:#8f877c}
+.filewrap input{font-size:12px;color:#e8e2d9;max-width:230px}
+.panel{padding:16px 24px;border-bottom:1px solid #2a2724;display:none;flex-direction:column;gap:12px;background:#181614}
+.panel.open{display:flex}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 14px}
+.grid label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:#8f877c}
+.grid input[type=text]{background:#0e0d0c;color:#e8e2d9;border:1px solid #3a352f;border-radius:5px;padding:8px 10px;font-size:13px}
+textarea{width:100%;box-sizing:border-box;min-height:160px;background:#0e0d0c;color:#e8e2d9;border:1px solid #3a352f;border-radius:6px;padding:12px;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.5}
+.main{display:flex;flex:1;min-height:0;flex-wrap:wrap}
+.list{flex:1 1 360px;min-width:0;max-width:520px;border-right:1px solid #2a2724;display:flex;flex-direction:column}
+.listhead{padding:10px 20px;display:flex;justify-content:space-between;align-items:center;color:#8f877c;font-size:12px;border-bottom:1px solid #2a2724;gap:8px;flex-wrap:wrap}
+.small{font-size:12px;padding:4px 10px;border:1px solid #3a352f;border-radius:5px;background:transparent;color:#d9d2c8;cursor:pointer}
+.row{display:grid;grid-template-columns:20px 44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 20px;border-bottom:1px solid #221f1c;cursor:pointer}
+.row.sel{background:#221f1b}
+.row .th{width:44px;height:78px;background:#000;border-radius:3px;overflow:hidden}
+.row .th img{width:100%;height:100%;object-fit:cover;display:block}
+.row .t{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .s{color:#8f877c;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .st{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{font-size:10px;letter-spacing:.1em;background:#3a352f;color:#e8e2d9;padding:2px 6px;border-radius:3px;margin-left:8px}
+.ab{display:flex;border:1px solid #3a352f;border-radius:5px;overflow:hidden;font-size:12px}
+.ab button{padding:4px 10px;border:0;cursor:pointer;background:transparent;color:#8f877c}
+.ab button.on{background:#e8e2d9;color:#141312}
+.side{flex:2 1 420px;min-width:0;display:flex;flex-direction:column;gap:18px;padding:20px 24px;overflow:auto}
+.phone{width:390px;height:693px;background:#000;border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px #2a2724}
+.phone img{width:100%;height:100%;display:block}
+.err{font-size:13px;color:#e8a88a;padding:6px 10px;border:1px solid #4a3a2a;border-radius:5px}
+.log{font-size:12px;color:#8f877c;line-height:1.7;white-space:pre-wrap}
+details{border-top:1px solid #2a2724;padding-top:14px}
+summary{cursor:pointer;font-weight:700;color:#d9d2c8}
+.help{color:#b9b0a3;line-height:1.8;font-size:13px;padding:10px 0 0;max-width:720px}
+.help b{color:#e8e2d9;display:block;margin-top:10px}
+
+/* One shared editor for new and existing products. Card renderer is unchanged. */
+.main{display:grid;grid-template-columns:300px minmax(0,1fr);align-items:start}
+.list{max-width:none;position:sticky;top:0;max-height:100vh;overflow:auto}
+.side{padding:24px;overflow:visible}
+#selWrap{display:grid!important;grid-template-columns:minmax(320px,1fr) minmax(240px,340px);gap:32px;align-items:start}
+#selWrap[style*="none"]{display:none!important}
+.editorColumn{grid-column:1;grid-row:1;min-width:0;display:flex;flex-direction:column;gap:16px}
+.previewColumn{grid-column:2;grid-row:1;position:sticky;top:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.phone{width:100%;height:auto;aspect-ratio:9/16;border-radius:12px}
+.grid{display:flex;flex-direction:column;gap:14px}
+.grid label,.photoField{display:grid;grid-template-columns:110px minmax(0,1fr);align-items:center;gap:16px;font-size:14px;color:#d9d2c8}
+.grid input[type=text]{width:100%;box-sizing:border-box;padding:12px;font-size:15px;min-width:0}
+.photoField input{max-width:100%;font-size:13px}
+.fieldHint{margin-top:8px;font-size:12px;color:#8f877c;overflow-wrap:anywhere}
+.extraFields label{margin-top:14px}
+.more{border:0;padding:0}
+.more summary{font-size:13px;font-weight:500;padding:8px}
+.more[open]{flex-basis:100%}
+.more .tools{padding:12px 0}
+.editorColumn>div:last-child{flex-direction:column;gap:12px!important}
+input:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid #e8a88a;outline-offset:3px}
+@media(max-width:1100px){.main{grid-template-columns:240px minmax(0,1fr)}#selWrap{grid-template-columns:minmax(0,1fr)}.previewColumn{grid-column:1;grid-row:2;position:static;max-width:340px}.row{padding:10px;gap:8px}.grid label,.photoField{grid-template-columns:100px minmax(0,1fr)}}
+@media(max-width:680px){.main{display:flex;flex-direction:column}.list{position:static;width:100%;max-height:260px;border-bottom:1px solid #2a2724}.side{box-sizing:border-box;width:100%;padding:20px}.grid label,.photoField{grid-template-columns:1fr;gap:8px}.top{padding:16px}.top>div:first-child{flex-wrap:wrap}}
+
+/* Left collection stays visible; right pane shows one task at a time. */
+.viewSwitch{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.viewSwitch [aria-pressed="true"]{background:#e8e2d9;color:#141312}
+#selWrap{grid-template-columns:minmax(0,1fr)!important;justify-items:center}
+#selWrap[data-mode="preview"] .editorColumn{display:none}
+#selWrap[data-mode="edit"] .previewColumn{display:none}
+#selWrap .previewColumn{grid-column:1;grid-row:1;position:static;width:min(100%,460px);max-width:460px}
+#selWrap .editorColumn{grid-column:1;grid-row:1;width:100%;max-width:720px}
+@media(min-width:1101px){.main{grid-template-columns:340px minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column">
+  <div class="top">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font-weight:700;font-size:16px">限時動態商品卡片・批次產圖</span><span style="color:#8f877c;font-size:12px">本機獨立版 · 1080×1920 · 版型 A / B · 永生 EGPS</span></div>
+    <div class="tools">
+      <button class="btn" id="bAdd" style="border-color:#e8a88a">＋ 新增商品</button>
+      <button class="btn primary" id="bExport">匯出正式 ZIP（0）</button>
+      <details class="more"><summary>批次匯入與其他工具</summary><div class="tools">
+      <div class="filewrap"><span>匯入 JSON / CSV（取代清單）</span><input type="file" id="fData" accept=".json,.csv,text/csv,application/json"></div>
+      <div class="filewrap"><span>加入多張照片（依檔名配對）</span><input type="file" id="fPhotos" accept="image/*,.jpg,.jpeg,.png,.webp,.heic" multiple></div>
+      <button class="btn" id="bPaste">貼上資料</button>
+      <button class="btn" id="bSample" hidden>載入範例商品</button>
+      <button class="btn" id="bTests" hidden>加入測試資料</button>
+      <button class="btn ghost" id="bClear">清空</button>
+      </div></details>
+    </div>
+  </div>
+
+  <div class="panel" id="pastePanel">
+    <div style="color:#8f877c;font-size:12px;line-height:1.6">貼上 JSON 陣列或 CSV（第一列為欄名）。欄位：id, photo, brand, model, feature, year, condition, accessories, price, store, layout(A/B), hideMark, test。photo 填檔名即可，再用「加入照片」選取同名檔案。</div>
+    <textarea id="pasteText" spellcheck="false"></textarea>
+    <div style="display:flex;gap:8px;align-items:center"><button class="btn light" id="bPasteOk">套用（取代目前清單）</button><span style="color:#d97b6c;font-size:12px" id="pasteErr"></span></div>
+  </div>
+
+  <div class="main">
+    <div class="list">
+      <div class="listhead"><span id="counts">商品清單</span><div style="display:flex;gap:6px"><button class="small" id="bAll">全選</button><button class="small" id="bNone">取消全選</button></div></div>
+      <div id="empty" style="padding:40px 20px;color:#8f877c;line-height:1.7">尚無商品。先「載入範例商品」看模板，或「＋ 新增商品」／「匯入 JSON / CSV」＋「加入照片」開始批次產圖。</div>
+      <div id="rows" style="overflow:auto;display:flex;flex-direction:column"></div>
+      <div id="testBar" style="padding:10px 20px;border-top:1px solid #2a2724;display:none"><button class="small" id="bExportTests">匯出勾選的測試商品 ZIP（TEST_ 檔名）</button></div>
+    </div>
+    <div class="side">
+      <div class="viewSwitch" id="viewSwitch"><button class="btn" id="bViewPreview">商品放大圖</button><button class="btn" id="bViewEdit">編輯商品資料</button><button class="btn" id="bExportPreview">匯出這張 PNG</button></div>
+      <div id="selWrap" style="display:none">
+        <div class="previewColumn">
+          <div class="phone"><img id="selImg" alt="預覽"></div>
+          <div style="font-size:12px;color:#8f877c;text-align:center">卡片預覽 · 與匯出 PNG 相同</div>
+        </div>
+        <div class="editorColumn">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap">
+            <div><div style="font-size:12px;color:#8f877c;letter-spacing:.1em;margin-bottom:4px">商品資料 · 由上往下填寫，即時更新預覽</div><div style="font-weight:700;font-size:18px" id="selTitle"></div></div>
+            <button class="btn" id="bExportOne">只匯出這一張 PNG</button>
+          </div>
+          <div style="font-size:13px;font-weight:700" id="selStatus"></div>
+          <div id="selErrs" style="display:flex;flex-direction:column;gap:6px"></div>
+          <div class="photoField"><label for="fSelectedPhoto">商品照片</label><div><input type="file" id="fSelectedPhoto" accept="image/*,.jpg,.jpeg,.png,.webp,.heic"><div id="selectedPhotoName" class="fieldHint"></div></div></div>
+          <div class="grid" id="editGrid"></div>
+          <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#d9d2c8">
+            <label style="display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="cbB" style="accent-color:#e8a88a">版型 B（圖更大、只留品牌／型號／售價）</label>
+            <label style="display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="cbMark" style="accent-color:#e8a88a">隱藏「永生 EGPS」（照片已有浮水印）</label>
+            <label style="display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="cbTest" style="accent-color:#e8a88a">測試商品</label>
+          </div>
+        </div>
+      </div>
+      <div id="blockedWrap" style="display:none;border:1px solid #4a3a2a;border-radius:6px;padding:12px 16px;flex-direction:column;gap:6px">
+        <div style="font-weight:700;color:#e8a88a">待填寫商品</div><div id="blocked" style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#d9d2c8"></div>
+      </div>
+      <div class="log" id="log"></div>
+      <details>
+        <summary>每日操作說明</summary>
+        <div class="help">
+          <b>1. 載入</b>三種方式：(a)「＋ 新增商品」會加入一筆空白商品，直接在同一份表單由上往下填寫並選照片；(b)「匯入 JSON / CSV」選資料檔，再用「加入照片」多選照片（依 photo 欄檔名配對，未配對的照片會各自建立一筆待補商品）；(c)「貼上資料」。照片只在你的瀏覽器內讀取，不上傳。
+          <b>2. 勾選與檢查</b>預設全部勾選、全部用版型 A。品牌、型號、有效價格及可讀取的圖片齊全即為完成。其他欄位可留空，文字長度不影響匯出；直接在商品資料欄位修改即時更新。
+          <b>3. 匯出</b>「匯出正式 ZIP」只處理勾選且驗證合格的非測試商品，下載一個 ZIP，內含每支 1080×1920 PNG，檔名「商品編號_版型.png」。測試商品用清單下方獨立按鈕，檔名加 TEST_。
+          <b>注意</b>本檔離線可用；字體使用系統中文字體（PingFang／微軟正黑），與線上版 Noto Sans TC 略有差異。已載入的照片不會存檔，重新開啟需再選一次。仍需人工：整理資料、檢查排版、上傳 FB／IG。
+        </div>
+      </details>
+    </div>
+  </div>
+</div>
+<script>
+// 固定版型渲染器：純 Canvas 2D，無 AI、無外部函式庫。輸出 1080×1920。預覽與匯出共用。
+// 構圖基準 = Story Card 原稿 2a（540×960 ×2）：照片 flex:1 cover 置中偏上(40%)、漸層 .5→0 (0–25%) 與 0→1 (60–100%)，
+// 下方 型號144 / 規格44 / 分隔線 / 售價112，間距 36，底邊距 = 原稿刪除 LINE 列後的自然邊距。卡片內不含聯絡文案、不留連結專區。
+const W = 1080, H = 1920, PAD = 64;
+// 原稿售價基線距畫布底：32(邊距)+21.7(LINE列)+18(gap)+56(售價盒)−52.4(基線) = 75.3 → ×2
+const PRICE_BASELINE_FROM_BOTTOM = 151;
+const ASC = 1.16, LH = 1.448; // Noto Sans TC 上伸／預設行高（em），用來對齊 DOM 原稿的基線
+const BG = '#0a0a0a', INK = '#f2ede6', SOFT = '#d8cfc2', MUTED = '#b9b0a3', LINE = '#2a2724', RULE = '#4a443c', ACCENT = '#e8a88a';
+const FONT = '"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif';
+const f = (w, s) => `${w} ${s}px ${FONT}`;
+const FONT_LOADS = ['500 30px', '600 64px', '700 64px'].map(s => `${s} "Noto Sans TC"`);
+
+const REQUIRED = [['photo', '照片'], ['brand', '品牌'], ['model', '型號'], ['price', '售價']];
+const has = v => v !== undefined && v !== null && String(v).trim() !== '';
+const truthy = v => v === true || /^(true|1|是|y|yes)$/i.test(String(v));
+function validate(p) { return REQUIRED.filter(([k]) => !has(p[k])).map(([, l]) => `缺 ${l}`); }
+function isTest(p) { return truthy(p.test); }
+function layoutOf(p) { return String(p.layout || 'A').trim().toUpperCase() === 'B' ? 'B' : 'A'; }
+function formatPrice(v) {
+  const n = Number(String(v).replace(/[^\d.]/g, ''));
+  return isFinite(n) && n > 0 ? n.toLocaleString('en-US') : null;
+}
+
+const TOKEN = /[\u3000-\u9fff\uff00-\uffef]|[^\s\-\/\u3000-\u9fff\uff00-\uffef]+[-\/]?|\s+/g;
+function wrap(ctx, text, maxW) {
+  const lines = []; let cur = '';
+  const fits = s => ctx.measureText(s).width <= maxW;
+  for (const tok of text.match(TOKEN) || []) {
+    if (fits(cur + tok)) { cur += tok; continue; }
+    if (cur.trim()) lines.push(cur.trimEnd());
+    cur = tok.trimStart();
+    if (!fits(cur)) { let piece = ''; for (const ch of cur) { if (fits(piece + ch)) piece += ch; else { lines.push(piece); piece = ch; } } cur = piece; }
+  }
+  if (cur.trim()) lines.push(cur.trimEnd());
+  return lines;
+}
+// 固定規則：先單行縮字級（max→min），仍放不下才在 min 字級換行；超過 maxLines → overflow
+function fitBlock(ctx, text, weight, max, min, maxW, maxLines, spacing = 0) {
+  const extra = spacing * Math.max(0, text.length - 1);
+  for (let s = max; s >= min; s -= 4) { ctx.font = f(weight, s); if (ctx.measureText(text).width + extra <= maxW) return { size: s, lines: [text], overflow: false, weight, total: 1 }; }
+  ctx.font = f(weight, min);
+  const lines = wrap(ctx, text, maxW - extra);
+  return { size: min, lines: lines.slice(0, maxLines), overflow: lines.length > maxLines, weight, total: lines.length };
+}
+function spaced(ctx, px) { if ('letterSpacing' in ctx) ctx.letterSpacing = px + 'px'; }
+function splitBrand(b) {
+  const m = b.match(/^([A-Za-z0-9&.'’\- ]+?)\s+([\u3000-\u9fff\uff00-\uffef].*)$/);
+  return m ? [m[1].trim(), m[2].trim()] : [b, ''];
+}
+
+function loadImage(src) {
+  return new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = () => rej(new Error('load')); im.src = src; });
+}
+
+// 回傳 { layout, errors[], metrics }。errors 非空 = 不得匯出。
+function renderCard(canvas, p, img) {
+  const layout = layoutOf(p), errors = validate(p);
+  if (has(p.photo) && !img) errors.push('照片載入失敗');
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = BG; ctx.fillRect(0, 0, W, H);
+  ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+  const maxW = W - PAD * 2, GAP = 36;
+
+  // 由下而上（原稿數值）：售價 → 分隔線 → 規格列 → 型號；照片吃掉上方全部
+  const priceStr = formatPrice(p.price);
+  if (has(p.price) && !priceStr) errors.push('售價：不是有效數字');
+  let ps = 112; const prefix = 'NT$';
+  const priceW = () => { ctx.font = f(500, Math.round(ps * .39)); const a = ctx.measureText(prefix).width + 12; ctx.font = f(700, ps); return a + ctx.measureText(priceStr || '0').width; };
+  while (priceW() > maxW && ps > 80) ps -= 4;
+  if (priceW() > maxW) errors.push('售價：放不下');
+  const priceBase = H - PRICE_BASELINE_FROM_BOTTOM;
+  const priceBoxTop = priceBase - (ASC - (LH - 1) / 2) * ps; // line-height:1 盒頂
+  const lineY = priceBoxTop - GAP - 2;
+
+  let specParts = [], specs = null;
+  if (layout === 'A') {
+    specParts = [p.year, p.condition, p.feature, p.accessories].filter(has).map(v => String(v).trim());
+    if (specParts.length) {
+      const sepW = 2 + 28 * 2;
+      const fitSpecs = size => { ctx.font = f(500, size); return specParts.reduce((a, t) => a + ctx.measureText(t).width, 0) + sepW * (specParts.length - 1); };
+      let size = 44; while (fitSpecs(size) > maxW && size > 34) size -= 2;
+      if (fitSpecs(size) > maxW) errors.push('年份／狀況／特色／附件：一行放不下，請縮短');
+      specs = { size };
+    }
+  }
+  const specsBoxBottom = lineY - GAP;
+  const specsBase = specs ? specsBoxBottom - (LH - ASC) * specs.size : 0;
+  const specsBoxTop = specs ? specsBoxBottom - LH * specs.size : specsBoxBottom;
+
+  const model = fitBlock(ctx, has(p.model) ? String(p.model).trim() : '', 600, 144, 96, maxW, 2);
+  if (model.overflow) errors.push(`型號：超過 2 行（需 ${model.total} 行），請縮短`);
+  const modelBoxBottom = specs ? specsBoxTop - GAP : specsBoxBottom;
+  const modelBoxTop = modelBoxBottom - model.lines.length * model.size;
+  const photoBottom = modelBoxTop;
+  if (photoBottom < 900) errors.push('資訊過多：照片區不足，請縮短文字');
+
+  // 照片：原稿 object-fit:cover; object-position:center 40%
+  if (img) {
+    const iw = img.naturalWidth, ih = img.naturalHeight, s = Math.max(W / iw, photoBottom / ih);
+    const dw = iw * s, dh = ih * s;
+    ctx.drawImage(img, (W - dw) / 2, (photoBottom - dh) * 0.4, dw, dh);
+  }
+  // 原稿漸層：0→25% 由 50% 黑淡出；60%→100% 淡入至黑底（不另加遮罩）
+  const gTop = ctx.createLinearGradient(0, 0, 0, photoBottom * .25);
+  gTop.addColorStop(0, 'rgba(10,10,10,.5)'); gTop.addColorStop(1, 'rgba(10,10,10,0)');
+  ctx.fillStyle = gTop; ctx.fillRect(0, 0, W, photoBottom * .25);
+  const gBot = ctx.createLinearGradient(0, photoBottom * .6, 0, photoBottom);
+  gBot.addColorStop(0, 'rgba(10,10,10,0)'); gBot.addColorStop(1, 'rgba(10,10,10,1)');
+  ctx.fillStyle = gBot; ctx.fillRect(0, photoBottom * .6, W, photoBottom - photoBottom * .6 + 2);
+
+  // 品牌列：原稿位置 top:64，28px，左拉丁字距 .24em、右中文 .3em
+  const [latin, cjk] = splitBrand(has(p.brand) ? String(p.brand).trim() : '');
+  const rightTxt = [cjk, has(p.store) ? String(p.store).trim() : ''].filter(Boolean).join('  ');
+  const hy = 64 + ASC * 28;
+  let bs = 28;
+  const headW = () => { ctx.font = f(500, bs); return ctx.measureText(latin.toUpperCase()).width + latin.length * bs * .24 + (rightTxt ? ctx.measureText(rightTxt).width + rightTxt.length * bs * .3 + 40 : 0); };
+  while (headW() > maxW && bs > 22) bs -= 2;
+  if (headW() > maxW) errors.push('品牌：一行放不下，請縮短');
+  ctx.font = f(500, bs); ctx.fillStyle = SOFT;
+  spaced(ctx, bs * .24); ctx.fillText(latin.toUpperCase(), PAD, hy);
+  if (rightTxt) { spaced(ctx, bs * .3); ctx.textAlign = 'right'; ctx.fillText(rightTxt, W - PAD, hy); ctx.textAlign = 'left'; }
+  spaced(ctx, 0);
+
+  // 型號（line-height 1）
+  ctx.font = f(model.weight, model.size); ctx.fillStyle = INK; spaced(ctx, -model.size * .02);
+  model.lines.forEach((ln, i) => ctx.fillText(ln, PAD, modelBoxTop + i * model.size + (ASC - (LH - 1) / 2) * model.size));
+  spaced(ctx, 0);
+
+  // 規格列：年份 | 狀況(暖色) | 特色 | 附件
+  if (specs) {
+    ctx.font = f(500, specs.size); let x = PAD;
+    const cond = has(p.condition) ? String(p.condition).trim() : null;
+    specParts.forEach((t, i) => {
+      ctx.fillStyle = t === cond ? ACCENT : SOFT; ctx.fillText(t, x, specsBase); x += ctx.measureText(t).width;
+      if (i < specParts.length - 1) { x += 28; ctx.fillStyle = RULE; ctx.fillRect(x, specsBase - specs.size * .8, 2, specs.size * .9); x += 30; }
+    });
+  }
+
+  // 分隔線 + 售價（右側低調店家識別，取代原稿定價位置；照片已有浮水印可關）
+  ctx.fillStyle = LINE; ctx.fillRect(PAD, lineY, maxW, 2);
+  const pfs = Math.round(ps * .39);
+  ctx.font = f(500, pfs); ctx.fillStyle = MUTED; ctx.fillText(prefix, PAD, priceBoxTop + ASC * pfs - (LH - 1) / 2 * pfs);
+  const pw = ctx.measureText(prefix).width + 12;
+  ctx.font = f(700, ps); ctx.fillStyle = INK; spaced(ctx, -ps * .02); ctx.fillText(priceStr || '—', PAD + pw, priceBase); spaced(ctx, 0);
+  if (!truthy(p.hideMark)) { ctx.font = f(500, 26); ctx.fillStyle = MUTED; spaced(ctx, 4); ctx.textAlign = 'right'; ctx.fillText('永生 EGPS', W - PAD, priceBase - 8); ctx.textAlign = 'left'; spaced(ctx, 0); }
+
+  return { layout, errors, metrics: { priceBase, priceBaselineFromBottom: H - priceBase, photoBottom, modelBoxTop, lineY } };
+}
+
+// 最小 ZIP 打包（store 模式，PNG 本身已壓縮）。無外部函式庫。
+const T = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(u8) { let c = 0xFFFFFFFF; for (let i = 0; i < u8.length; i++) c = T[(c ^ u8[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function dosTime(d) { return { time: (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1), date: ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate() }; }
+async function makeZip(files) { // files: [{name, blob}]
+  const enc = new TextEncoder(), parts = [], central = [], { time, date } = dosTime(new Date()); let offset = 0;
+  for (const fl of files) {
+    const data = new Uint8Array(await fl.blob.arrayBuffer()), name = enc.encode(fl.name), crc = crc32(data);
+    const lh = new DataView(new ArrayBuffer(30));
+    lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true);
+    lh.setUint16(10, time, true); lh.setUint16(12, date, true); lh.setUint32(14, crc, true); lh.setUint32(18, data.length, true); lh.setUint32(22, data.length, true);
+    lh.setUint16(26, name.length, true); lh.setUint16(28, 0, true);
+    parts.push(lh.buffer, name, data);
+    const ch = new DataView(new ArrayBuffer(46));
+    ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true); ch.setUint16(10, 0, true);
+    ch.setUint16(12, time, true); ch.setUint16(14, date, true); ch.setUint32(16, crc, true); ch.setUint32(20, data.length, true); ch.setUint32(24, data.length, true);
+    ch.setUint16(28, name.length, true); ch.setUint16(30, 0, true); ch.setUint16(32, 0, true); ch.setUint16(34, 0, true); ch.setUint16(36, 0, true); ch.setUint32(38, 0, true); ch.setUint32(42, offset, true);
+    central.push(ch.buffer, name);
+    offset += 30 + name.length + data.length;
+  }
+  const cdSize = central.reduce((a, b) => a + b.byteLength, 0);
+  const e = new DataView(new ArrayBuffer(22));
+  e.setUint32(0, 0x06054b50, true); e.setUint16(4, 0, true); e.setUint16(6, 0, true); e.setUint16(8, files.length, true); e.setUint16(10, files.length, true);
+  e.setUint32(12, cdSize, true); e.setUint32(16, offset, true); e.setUint16(20, 0, true);
+  return new Blob([...parts, ...central, e.buffer], { type: 'application/zip' });
+}
+
+const SAMPLE = [];
+const TESTS = [];
+const $ = id => document.getElementById(id);
+const FIELDS = [['brand','品牌 *'],['model','型號 *'],['year','年份'],['condition','品項／狀況'],['price','售價 *（元）'],['feature','簡短特色'],['accessories','盒單／附件'],['store','店別'],['id','商品編號'],['photo','照片檔名／路徑']];
+
+let products=[], photos={}, results={}, selected=null, uid=0, timers={}, viewMode='preview';
+function setView(mode){viewMode=mode;document.getElementById('selWrap').dataset.mode=mode;document.getElementById('bViewPreview').setAttribute('aria-pressed',String(mode==='preview'));document.getElementById('bViewEdit').setAttribute('aria-pressed',String(mode==='edit'));}
+const canvas=document.createElement('canvas');
+const norm=list=>list.map(p=>{const o={...p};for(const k of ['hideMark','test'])if(typeof o[k]==='string')o[k]=/^(true|1|是|y|yes)$/i.test(o[k]);return o;});
+const tag=list=>list.map(p=>({...p,_uid:p._uid??++uid,_checked:p._checked??true}));
+const base=v=>String(v||'').trim().split(/[\\/]/).pop();
+const resolvePhoto=p=>{if(!p.photo)return null;const n=String(p.photo).trim();return photos[n]||photos[base(n)]||n;};
+function completionErrors(p,img){const errors=validate(p);if(has(p.photo)&&!img)errors.push('請重新選擇圖片');if(has(p.price)&&!formatPrice(p.price))errors.push('請填寫有效價格');return errors;}
+async function renderOne(p,c=canvas){let img=null;const src=resolvePhoto(p);if(src){try{img=await loadImage(src);}catch(e){}}const r=renderCard(c,p,img);return{url:c.toDataURL('image/jpeg',.85),errors:completionErrors(p,img),layout:r.layout};}
+let seq=0;
+async function renderAll(){const s=++seq;for(const p of products){if(s!==seq)return;const r=await renderOne(p);if(s!==seq)return;results[p._uid]=r;draw();}}
+function setProducts(list){products=tag(list);results={};selected=products[0]?._uid??null;draw();renderAll();}
+function update(id,patch,delay=0){const p=products.find(x=>x._uid===id);if(!p)return;Object.assign(p,patch);draw(false);clearTimeout(timers[id]);timers[id]=setTimeout(async()=>{results[id]=await renderOne(p);draw(false);},delay);}
+function parse(text){const t=text.trim();if(!t)return[];if(t[0]==='['||t[0]==='{'){const j=JSON.parse(t);return Array.isArray(j)?j:[j];}const lines=t.split(/\r?\n/).filter(l=>l.trim());const split=l=>{const out=[];let cur='',q=false;for(const ch of l){if(ch==='"')q=!q;else if(ch===','&&!q){out.push(cur);cur='';}else cur+=ch;}out.push(cur);return out.map(s=>s.trim());};const head=split(lines[0]);return lines.slice(1).map(l=>{const v=split(l),o={};head.forEach((h,i)=>{o[h]=v[i]??'';});return o;});}
+function addPhotos(files){const names=[];for(const f of files){photos[f.name]=URL.createObjectURL(f);names.push(f.name);}const matched=[],unmatched=[];for(const n of names){const hits=products.filter(p=>base(p.photo)===n);hits.length?matched.push(`${n} → ${hits.map(p=>p.id||p.model).join('、')}`):unmatched.push(n);}const drafts=tag(unmatched.map(n=>({photo:n,id:'',brand:'',model:'',price:''})));products.push(...drafts);results={};if(drafts[0]){selected=drafts[0]._uid;setView('edit');}log(`已加入 ${names.length} 張照片。\n配對到現有商品 ${matched.length} 筆${matched.length?'：\n'+matched.join('\n'):''}`+(unmatched.length?`\n未配對 ${unmatched.length} 張，已各建立一筆新商品（請在右側補品牌／型號／售價）：\n${unmatched.join('\n')}`:''));draw();renderAll();}
+function log(t){$('log').textContent=t;}
+function download(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),10000);}
+async function buildPngs(list,testMode){const c=document.createElement('canvas'),files=[],blocked=[],used=new Map();const safe=s=>String(s).replace(/[\\/:*?"<>|]/g,'-').trim();for(const p of list){const res=await renderOne(p,c);if(res.errors.length){blocked.push(`${p.id||p.model||'（未命名）'}：${res.errors.join('；')}`);continue;}const blob=await new Promise(r=>c.toBlob(r,'image/png'));const bmp=await createImageBitmap(blob);if(bmp.width!==1080||bmp.height!==1920){blocked.push(`${p.id||p.model}：PNG 尺寸異常 ${bmp.width}×${bmp.height}`);continue;}let b=safe(p.id||p.model),n=(used.get(b)||0)+1;used.set(b,n);if(n>1)b+='_'+n;files.push({name:`${testMode?'TEST_':''}${b}_${res.layout}.png`,blob});}return{files,blocked};}
+async function exportBatch(testMode){const list=products.filter(p=>p._checked&&isTest(p)===testMode);if(!list.length){log(testMode?'沒有勾選的測試商品。':'沒有勾選的正式商品。');return;}log(`處理中… 勾選 ${list.length} 筆`);const{files,blocked}=await buildPngs(list,testMode);let t=`勾選 ${list.length} 筆 → 匯出 ${files.length} 張（每張 1080×1920 PNG 已核對）`;if(blocked.length)t+=`\n尚未完成 ${blocked.length} 筆：\n`+blocked.join('\n');if(files.length){download(await makeZip(files),`${testMode?'TEST_':'EGPS_'}stories_${new Date().toISOString().slice(0,10)}.zip`);t+=`\nZIP 內容：`+files.map(f=>f.name).join('、');}log(t);}
+function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function draw(full=true){
+  $('empty').style.display=products.length?'none':'block';
+  const okChecked=t=>products.filter(p=>p._checked&&isTest(p)===t&&results[p._uid]&&!results[p._uid].errors.length).length;
+  $('bExport').textContent=`匯出正式 ZIP（${okChecked(false)}）`;
+  $('counts').textContent=products.length?`商品清單 · ${products.length} 筆 · 勾選 ${products.filter(p=>p._checked).length}`:'商品清單';
+  $('testBar').style.display=products.some(p=>p._checked&&isTest(p))?'block':'none';
+  const rows=$('rows');rows.innerHTML='';
+  for(const p of products){const res=results[p._uid],L=layoutOf(p);let st='產圖中…',col='#8f877c';if(res){if(res.errors.length){st='待填寫';col='#8f877c';}else{st='已完成';col='#8fc98a';}}
+    const d=document.createElement('div');d.className='row'+(p._uid===selected?' sel':'');
+    d.innerHTML=`<input type="checkbox" ${p._checked?'checked':''} style="width:16px;height:16px;cursor:pointer;accent-color:#e8a88a"><div class="th">${res?`<img src="${res.url}" alt="">`:''}</div><div style="min-width:0;display:flex;flex-direction:column;gap:3px"><div class="t">${esc(p.id||p.model||'新商品（待填寫）')}${isTest(p)?'<span class="tag">TEST</span>':''}</div><div class="s">${esc([p.brand,p.model].filter(Boolean).join(' · '))}</div><div class="st" style="color:${col}">${esc(st)}</div></div><div class="ab"><button class="${L==='A'?'on':''}" data-l="A">A</button><button class="${L==='B'?'on':''}" data-l="B">B</button></div>`;
+    d.onclick=()=>{selected=p._uid;setView('preview');draw();};
+    d.querySelector('input').onclick=e=>e.stopPropagation();d.querySelector('input').onchange=e=>{p._checked=e.target.checked;draw(false);};
+    d.querySelectorAll('.ab button').forEach(b=>b.onclick=e=>{e.stopPropagation();update(p._uid,{layout:b.dataset.l});});
+    rows.appendChild(d);}
+  const blocked=products.filter(p=>p._checked&&results[p._uid]?.errors.length).map(p=>`${p.id||p.model||'（未命名）'}：${results[p._uid].errors.join('；')}`);
+  $('blockedWrap').style.display='none';$('blocked').innerHTML=blocked.map(b=>`<div>${esc(b)}</div>`).join('');
+  const sel=products.find(p=>p._uid===selected);$('selWrap').style.display=sel?'flex':'none';$('viewSwitch').style.display=sel?'flex':'none';setView(viewMode);if(!sel)return;
+  const res=results[sel._uid];
+  if(res)$('selImg').src=res.url;else $('selImg').removeAttribute('src');
+  $('selTitle').textContent=[(sel.id||''),sel.brand,sel.model].filter(Boolean).join(' · ')+(res?' · 版型 '+res.layout:'');
+  $('selStatus').textContent=res?(res.errors.length?'待填寫':'已完成・可匯出'):'產圖中…';$('selStatus').style.color=res?(res.errors.length?'#8f877c':'#8fc98a'):'#8f877c';
+  $('selErrs').textContent=res&&res.errors.length?'填好品牌、型號、價格並選入圖片即可完成。':'';
+  $('selectedPhotoName').textContent=sel.photo?(String(sel.photo).startsWith('data:')?'已載入商品照片':base(sel.photo)):'尚未選擇照片';
+  $('fSelectedPhoto').onchange=e=>{const file=e.target.files?.[0];if(!file)return;const key=sel._uid+'/'+file.name;photos[key]=URL.createObjectURL(file);update(sel._uid,{photo:key});e.target.value='';};
+  if(full && (!$('editGrid').contains(document.activeElement) || $('editGrid').dataset.uid!==String(sel._uid))){
+    const g=$('editGrid');const expanded=g.querySelector('details')?.open;g.innerHTML='';g.dataset.uid=sel._uid;
+    const extra=document.createElement('details');extra.className='extraFields';extra.open=!!expanded;
+    const summary=document.createElement('summary');summary.textContent='其他資料（選填）';extra.appendChild(summary);
+    for(const[k,label]of FIELDS){const l=document.createElement('label');l.innerHTML=`<span>${esc(label)}</span><input type="text" value="${esc(k==='photo'&&String(sel[k]).startsWith('data:')?'':sel[k]??'')}" ${k==='price'?'inputmode="decimal"':''}>`;l.querySelector('input').oninput=e=>update(sel._uid,{[k]:e.target.value},250);(FIELDS.findIndex(f=>f[0]===k)<5?g:extra).appendChild(l);}g.appendChild(extra);
+    $('cbB').checked=layoutOf(sel)==='B';$('cbMark').checked=!!sel.hideMark;$('cbTest').checked=isTest(sel);
+    $('cbB').onchange=e=>update(sel._uid,{layout:e.target.checked?'B':'A'});$('cbMark').onchange=e=>update(sel._uid,{hideMark:e.target.checked});$('cbTest').onchange=e=>update(sel._uid,{test:e.target.checked});}
+}
+
+$('bViewPreview').onclick=()=>setView('preview');
+$('bViewEdit').onclick=()=>setView('edit');
+$('bExportPreview').onclick=()=>$('bExportOne').click();
+$('bSample').onclick=()=>setProducts(norm(SAMPLE));
+$('bTests').onclick=()=>{products.push(...tag(norm(TESTS)));results={};draw();renderAll();};
+$('bAdd').onclick=()=>{const[p]=tag([{brand:'',model:'',price:'',photo:'',layout:'A'}]);products.push(p);selected=p._uid;setView('edit');draw();update(p._uid,{});$('editGrid').querySelector('input').focus();$('selWrap').scrollIntoView({block:'start',behavior:'smooth'});};
+$('fData').onchange=async e=>{const f=e.target.files&&e.target.files[0];if(!f){log('未選到任何檔案。');return;}try{setProducts(norm(parse(await f.text())));}catch(err){log('資料格式錯誤：'+err.message);}e.target.value='';};
+$('fPhotos').onchange=e=>{const files=Array.from(e.target.files||[]);if(!files.length){log('未選到任何檔案。');return;}addPhotos(files);e.target.value='';};
+$('bPaste').onclick=()=>{const p=$('pastePanel');p.classList.toggle('open');if(p.classList.contains('open')&&!$('pasteText').value)$('pasteText').value=JSON.stringify(products.map(({_uid,_checked,...x})=>x),null,2);};
+$('bPasteOk').onclick=()=>{try{setProducts(norm(parse($('pasteText').value)));$('pastePanel').classList.remove('open');$('pasteErr').textContent='';}catch(e){$('pasteErr').textContent='格式錯誤：'+e.message;}};
+$('bClear').onclick=()=>setProducts([]);
+$('bAll').onclick=()=>{products.forEach(p=>p._checked=true);draw(false);};
+$('bNone').onclick=()=>{products.forEach(p=>p._checked=false);draw(false);};
+$('bExport').onclick=()=>exportBatch(false);
+$('bExportTests').onclick=()=>exportBatch(true);
+$('bExportOne').onclick=async()=>{const sel=products.find(p=>p._uid===selected);if(!sel)return;const{files,blocked}=await buildPngs([sel],isTest(sel));if(blocked.length){log('請補齊商品資料：\n'+blocked.join('\n'));return;}download(files[0].blob,files[0].name);log(`已匯出 ${files[0].name}（1080×1920 已核對）`);};
+(async()=>{try{await Promise.all(FONT_LOADS.map(s=>document.fonts.load(s).catch(()=>{})));}catch(e){}setProducts(norm(SAMPLE));})();
+</script>
+</body>
+</html>
